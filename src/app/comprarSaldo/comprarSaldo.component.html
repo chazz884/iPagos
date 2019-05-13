@@ -1,0 +1,11 @@
+<ActionBar class="action-bar">
+	<!-- <NavigationButton text="Atrás" android.systemIcon="ic_menu_back" (tap)="irAtras()"></NavigationButton>  -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Comprar saldo"></Label>
+</ActionBar>
+
+<StackLayout class="page">
+</StackLayout>

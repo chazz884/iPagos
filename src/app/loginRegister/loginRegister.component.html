@@ -1,0 +1,56 @@
+<ActionBar class="action-bar">
+    <Label class="action-bar-title" text="Login"></Label>
+</ActionBar>
+
+<GridLayout>
+    <StackLayout orientation="vertical" class="main bg_login">
+
+        <Image #logo width="140" class="vod-logo" src="~/images/logoIpagos.png"></Image>
+
+        <StackLayout [visibility]="navigating ? 'collapsed' : 'visible'" horizontalAlignment="center" orientation="horizontal" class="reg-log-container">
+            <Label text="L O G I N" (tap)="setToLogin()" [ngClass]="[isLogin ? 'reg-active' : 'reg-deactive']"></Label>
+            <Label text=" | " class="reg-separator"></Label>
+            <Label text="R E G I S T R O" (tap)="setToRegister()" [ngClass]="[!isLogin ? 'reg-active' : 'reg-deactive']"></Label>
+        </StackLayout>
+
+        <GridLayout rows="auto,auto,auto,auto" [visibility]="navigating ? 'collapsed' : 'visible'" orientation="vertical" class="form-container" [ngClass]="[formSubmitted ? 'form-container-submitted' : 'form-container']">
+            <GridLayout row="0" rows="30, auto" marginBottom="10">
+                <Label #label row="1" text="Correo electrónico" opacity="0.4" fontSize="18" color="#ffffff" horizontalAlignment="center" class="input"></Label>
+                <TextField #textField [(ngModel)]="email" keyboardType="email" row="1" (focus)="onFocus()" (blur)="onBlur()" color="#ffffff" borderBottomWidth="3" width="90%" borderBottomColor="#cec8c8" padding="2"></TextField>
+            </GridLayout>
+
+            <GridLayout row="1" rows="30, auto" marginBottom="10" [visibility]="isLogin ? 'visible' : 'hidden'">
+                <Label #label1 row="1" text="Contraseña" opacity="0.4" fontSize="18" color="#ffffff" horizontalAlignment="center" class="input"></Label>
+                <TextField #textField1 [(ngModel)]="password" secure="true" row="1" (focus)="onFocus1()" (blur)="onBlur1()" color="#ffffff" borderBottomWidth="3" width="90%" borderBottomColor="#cec8c8" padding="2"></TextField>
+            </GridLayout>
+
+            <GridLayout rows="auto,auto" row="2" #item [visibility]="!isLogin ? 'visible' : 'hidden'">
+                <GridLayout row="0" rows="30, auto" marginBottom="10">
+                    <Label #label2 row="1" text="Nombre completo" opacity="0.4" fontSize="18" color="#ffffff" horizontalAlignment="center" class="input"></Label>
+                    <TextField #textField2 [(ngModel)]="nombre" row="1" (focus)="onFocus2()" (blur)="onBlur2()" color="#ffffff" borderBottomWidth="3" width="90%" borderBottomColor="#cec8c8" padding="2"></TextField>
+                </GridLayout>
+            </GridLayout>
+            <Button row="3" #btn (touch)="onFocusBtn($event)" [text]="loginTxt" (tap)="onButtonTap()" class="form-button"></Button>
+        </GridLayout>   
+
+    </StackLayout>
+
+    
+    <StackLayout style.zIndex="999" modal size="md" alignment="middle" dismissable="true" duration="100" (open)="onOpenModal()" (close)="onCloseModal()">
+        <StackLayout borderRadius="3" rows="*, auto" class="p-t-15 bg-white">
+
+            <GridLayout class="entry" rows="auto" columns="auto, *">
+                <GridLayout col="0" width="32" height="32" class="p-5 m-y-5 img-circle border-{{alert}}">
+                    <Label class="m-y-auto text-center text-{{alert}}" fontSize="16" text="P"></Label>
+                </GridLayout>
+                <Label col="1" class="m-l-15 m-y-auto text-left text-dark" textWrap="true" fontSize="" [text]="textAlert"></Label>
+            </GridLayout>
+
+            <WrapLayout class="m-y-2 m-r-15 pull-right">
+                <Label (tap)="closeModal()" text="OK" class="m-y-10 p-10 text-{{alert}}"></Label>
+            </WrapLayout>
+
+        </StackLayout>
+    </StackLayout> 
+</GridLayout>
+

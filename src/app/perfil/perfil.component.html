@@ -1,0 +1,60 @@
+<ActionBar class="action-bar">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Perfil"></Label>
+</ActionBar>
+
+<GridLayout>
+    <StackLayout orientation="vertical" class="main bg_general">
+
+        <StackLayout [visibility]="navigating ? 'collapsed' : 'visible'" orientation="vertical" class="form-container" [ngClass]="[formSubmitted ? 'form-container-submitted' : 'form-container']">
+
+            <GridLayout rows="30, auto" marginBottom="10">
+                <Label #label3 row="1" text="Nombre" opacity="0.4" fontSize="18" color="#4e535b" horizontalAlignment="center" class="input"></Label>
+                <TextField #textField3 [(ngModel)]="name" row="1" (focus)="onFocus3()" (blur)="onBlur3()" color="#4e535b" borderBottomWidth="3" width="90%" borderBottomColor="#cec8c8" padding="2"></TextField>
+            </GridLayout>
+
+            <GridLayout rows="30, auto" marginBottom="10">
+                <Label #label row="1" text="Correo electrónico" opacity="0.4" fontSize="18" color="#4e535b" horizontalAlignment="center" class="input"></Label>
+                <TextField #textField [(ngModel)]="email" keyboardType="email" row="1" (focus)="onFocus()" (blur)="onBlur()" color="#4e535b" borderBottomWidth="3" width="90%" borderBottomColor="#cec8c8" padding="2"></TextField>
+            </GridLayout>
+
+            <GridLayout rows="30, auto" marginBottom="10">
+                <Label #label1 row="1" text="Contraseña" opacity="0.4" fontSize="18" color="#4e535b" horizontalAlignment="center" class="input"></Label>
+                <TextField #textField1 [(ngModel)]="password" secure="true" row="1" (focus)="onFocus1()" (blur)="onBlur1()" color="#4e535b" borderBottomWidth="3" width="90%" borderBottomColor="#cec8c8" padding="2"></TextField>
+            </GridLayout>
+
+            <GridLayout rows="30, auto" marginBottom="10">
+                <Label #label2 row="1" text="Contraseña" opacity="0.4" fontSize="18" color="#4e535b" horizontalAlignment="center" class="input"></Label>
+                <TextField #textField2 [(ngModel)]="passwordConfirm" secure="true" row="1" (focus)="onFocus2()" (blur)="onBlur2()" color="#4e535b" borderBottomWidth="3" width="90%" borderBottomColor="#cec8c8" padding="2"></TextField>
+            </GridLayout>
+
+            <GridLayout rows="auto" columns="auto, *" class="m-15" width="86%">
+                <Label class="m-t-5" color="#b5b3b3" text="Acepto terminos y condiciones" textWrap="false" row="0" col="0"></Label>
+                <Switch class="m-t-4" checked="false" (checkedChange)="onFirstChecked($event)" row="0" col="1"></Switch>
+            </GridLayout> 
+
+            <Button text="Acualizar" (tap)="onButtonTap()" class="form-button"></Button>
+        </StackLayout>   
+
+    </StackLayout>
+
+    <StackLayout style.zIndex="999" modal size="md" alignment="middle" dismissable="true" duration="100" (open)="onOpenModal()" (close)="onCloseModal()">
+        <StackLayout borderRadius="3" rows="*, auto" class="p-t-15 bg-white">
+
+            <GridLayout class="entry" rows="auto" columns="auto, *" (tap)="onTap();">
+                <GridLayout col="0" width="32" height="32" class="p-5 m-y-5 img-circle border-{{alert}}">
+                    <Label class="m-y-auto text-center text-{{alert}}" fontSize="16" text="P"></Label>
+                </GridLayout>
+                <Label col="1" class="m-l-15 m-y-auto text-left text-dark" fontSize="" [text]="textAlert"></Label>
+            </GridLayout>
+
+            <WrapLayout class="m-y-2 m-r-15 pull-right">
+                <Label (tap)="closeModal()" text="OK" class="m-y-10 p-10 text-{{alert}}"></Label>
+            </WrapLayout>
+
+        </StackLayout>
+    </StackLayout> 
+</GridLayout>

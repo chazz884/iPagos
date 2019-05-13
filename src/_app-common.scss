@@ -1,0 +1,333 @@
+// Place any CSS rules you want to apply on both iOS and Android here.
+// This is where the vast majority of your CSS code goes.
+// Font icon class
+.fa {
+    font-family: "FontAwesome";
+}
+// Common page class
+.page-content {
+    .page-placeholder {
+        color: $page-icon-color;
+        font-size: $page-content-placeholder-font-size;
+        vertical-align: center;
+        horizontal-align: center;
+    }
+
+    .page-icon {
+        font-size: 72;
+        vertical-align: top;
+        horizontal-align: center;
+        color: $page-icon-color;
+        margin-top: 20%;
+    }
+}
+
+//Action bar
+ActionBar .action-bar-title {
+    horizontal-align: center;
+}
+
+ // Drawer navigation custom styles
+$sidedrawer-header-image-size: 60;
+$sidedrawer-header-image-offset-top: 20;
+$sidedrawer-header-image-offset-bottom: 5;
+$sidedrawer-list-item-offset-left: 15;
+$sidedrawer-list-icon-offset: 10;
+$sidedrawer-list-icon-size: 20;
+
+.sidedrawer {
+    &.sidedrawer-left {
+        background-color: $ab-background;
+
+        .sidedrawer-header-image {
+            color: $background-dark;
+            height: $sidedrawer-header-image-size;
+            width: $sidedrawer-header-image-size;
+            font-size: $sidedrawer-header-image-size;
+            padding: 0;
+            margin-bottom: $sidedrawer-header-image-offset-bottom;
+            margin-top: $sidedrawer-header-image-offset-top;
+        }
+
+        .footnote {
+            color: rgba($ab-color, 0.5);
+        }
+    }
+
+    .sidedrawer-header {
+        background-color: $ab-background;
+
+        .sidedrawer-header-brand {
+            color: $ab-color;
+        }
+    }
+
+    .sidedrawer-content {
+        background-color: $side-drawer-background;
+
+        $sidedrawer-list-item-offset-left: 15;
+        $sidedrawer-list-icon-offset: 10;
+        $sidedrawer-list-icon-size: 20;
+
+        .sidedrawer-list-item {
+            padding-left: $sidedrawer-list-item-offset-left;
+            Label {
+                vertical-align: center;
+                color: $blue-dark;
+            }
+            .fa {
+                width: $sidedrawer-list-icon-size;
+                margin-right: $sidedrawer-list-icon-offset;
+            }
+            &.selected {
+                background-color: $item-active-background;
+                Label {
+                    color: $item-active-color;
+                }
+            }
+        }
+    }
+}
+//+++++++++++++++++++++
+// CSS login y registro
+//+++++++++++++++++++++
+.bg_general{
+  background:#e5e5e5;
+}
+.underLine{
+  color:#a0a0a0;
+}
+ActionBar {
+    background-color:  white;
+    color: #ff6767;
+}
+.action-label {
+  font-size: 16;
+}
+.vod-logo {
+  margin-top: 65;
+}
+.reg-log-container {
+  margin-top: 40;
+  // padding: 20;
+  text-align: center;
+}
+.reg-active {
+  font-size: 20;
+  color:lightgray;
+  border-bottom-color:#36498e;
+  border-bottom-width: 2;
+  padding-bottom: 10;
+  animation-name: toggle;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+reg-active-input {
+  animation-name: reg_input;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+.reg-deactive{
+  color:lightgray;
+  font-size: 11;
+  padding-top: 12;
+  animation-name: toggle;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.1, 0.1, 1.0, 1.0);
+  
+}
+@keyframes toggle {
+  from { opacity: 0;}
+  50% { opacity: 0.5; }
+  to { opacity: 1; }
+}
+@keyframes reg_input {
+  from { background-color: white; }
+  50% { background-color: white; }
+  to { background-color: white; }
+}
+.reg-separator{
+  color:lightgray;
+  font-size: 13;
+  padding-top: 12;
+  padding-left: 20;
+  padding-right: 20;
+  animation-name: toggle;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+.form-input {
+  margin-left: 20;
+  margin-right: 20;
+  margin-top: 10;
+  padding: 10;
+  placeholder-color:rgba(207, 207, 207, 0.6);
+  background-color: rgba(241, 241, 241, 0.6);
+  font-size: 14;
+}
+.form-container {
+  margin-top: 15;
+}
+.form-container-submitted {
+  animation-name: login_submitted;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+@keyframes login_submitted {
+  from { opacity: 1 }
+  50% { opacity: 0.1 }
+  to { opacity: 1 }
+}
+.form-button {
+  margin: 20;
+  margin-top: 25;
+  border-radius: 6;
+  background: linear-gradient(to left, #36498e, #052b61);
+  color: white;
+}
+.form-label {
+  color:#ccc;
+  margin-top: -5; 
+}
+.login-done {
+  width: 10;
+  height: 10;
+  border-radius: 1000;
+  background-color: #f84e4e;
+  padding: 10;
+  z-index: 1000000;
+  margin: -50;
+}
+.bg_login{
+    background-image: url("~/images/bgLogin.jpg");
+    background-repeat: no-repeat;
+    background-size:100% 100%;    
+}
+
+//+++++++++++++++++++++
+// CSS Modal
+//+++++++++++++++++++++
+.entry {
+    padding: 5 30;
+}
+
+.border-primary,
+.border-warning,
+.border-danger,
+.border-info,
+.border-dark,
+.border-success {
+    border-width: 1.5;
+}
+
+.border-primary {
+    border-color: royalblue;
+}
+
+.border-info {
+    border-color: skyblue;
+}
+
+.border-warning {
+    border-color: orange;
+}
+
+.border-danger {
+    border-color: red;
+}
+
+.border-dark {
+    border-color: black;
+}
+
+.border-success {
+    border-color: greenyellow;
+}
+
+.bg-primary,
+.bg-info,
+.bg-success,
+.bg-danger {
+    color: #fff;
+}
+
+.bg-primary {
+    background-color: royalblue;
+}
+
+.bg-info {
+    background-color: skyblue;
+}
+
+.bg-warning {
+    background-color: orange;
+    color: #222222;
+}
+
+.bg-success {
+    background-color: greenyellow;
+}
+
+.bg-danger {
+    background-color: red;
+}
+
+.bg-white {
+    background-color: #ffffff;
+    color: #777777;
+}
+
+.text-white {
+    color: #FFFFFF;
+}
+
+.text-primary {
+    color: royalblue;
+}
+
+.text-info {
+    color: skyblue;
+}
+
+.text-dark {
+    color: black;
+}
+
+.text-warning {
+    color: orange;
+}
+
+.text-success {
+    color: greenyellow;
+}
+
+.text-danger {
+    color: red;
+}
+//+++++++++++++++++++++
+// CSS drop-down
+//+++++++++++++++++++++
+
+.drop-down {
+    padding: 10;
+    font-size: 20;
+    color: #ffffff;
+    background:transparent;
+    text-align: center;
+    // border-bottom-width: 3;
+    width: 90%;
+    // border-bottom-color: #cec8c8; 
+}
+
+//--------------------
+
+.borderTerminos{
+  border-width: 1;
+  border-color: #ffffff;
+  border-radius: 10;
+  padding: 7;
+  width: 80%;
+  font-size: 13;
+}
