@@ -24,11 +24,9 @@
                 <TextField #textField1 [(ngModel)]="password" secure="true" row="1" (focus)="onFocus1()" (blur)="onBlur1()" color="#ffffff" borderBottomWidth="3" width="90%" borderBottomColor="#cec8c8" padding="2"></TextField>
             </GridLayout>
 
-            <GridLayout rows="auto,auto" row="2" #item [visibility]="!isLogin ? 'visible' : 'hidden'">
-                <GridLayout row="0" rows="30, auto" marginBottom="10">
-                    <Label #label2 row="1" text="Nombre completo" opacity="0.4" fontSize="18" color="#ffffff" horizontalAlignment="center" class="input"></Label>
-                    <TextField #textField2 [(ngModel)]="nombre" row="1" (focus)="onFocus2()" (blur)="onBlur2()" color="#ffffff" borderBottomWidth="3" width="90%" borderBottomColor="#cec8c8" padding="2"></TextField>
-                </GridLayout>
+            <GridLayout row="2" #item [visibility]="!isLogin ? 'visible' : 'hidden'" rows="30, auto" marginBottom="10">
+                <Label #label2 row="1" text="Nombre completo" opacity="0.4" fontSize="18" color="#ffffff" horizontalAlignment="center" class="input"></Label>
+                <TextField #textField2 [(ngModel)]="nombre" row="1" (focus)="onFocus2()" (blur)="onBlur2()" color="#ffffff" borderBottomWidth="3" width="90%" borderBottomColor="#cec8c8" padding="2"></TextField>
             </GridLayout>
             <Button row="3" #btn (touch)="onFocusBtn($event)" [text]="loginTxt" (tap)="onButtonTap()" class="form-button"></Button>
         </GridLayout>   
